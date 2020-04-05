@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://lonffy.github.io">
   <title>玩转Hexo-yilia主题 | Lonffy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="解决yilia提示缺失模块的问题将以下内容放到博客目录的配置文件中, 即_config.xml 123456789101112131415161718jsonContent:  meta: false  pages: false  posts:    title: true    date: true    path: true    text: false    raw: false    co">
+  <meta name="description" content="修复yilia的各种问题以及对其进行各项配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玩转Hexo-yilia主题">
 <meta property="og:url" content="http://lonffy.github.io/2020/04/05/%E7%8E%A9%E8%BD%ACHexo-yilia%E4%B8%BB%E9%A2%98/index.html">
 <meta property="og:site_name" content="Lonffy的博客">
-<meta property="og:description" content="解决yilia提示缺失模块的问题将以下内容放到博客目录的配置文件中, 即_config.xml 123456789101112131415161718jsonContent:  meta: false  pages: false  posts:    title: true    date: true    path: true    text: false    raw: false    co">
+<meta property="og:description" content="修复yilia的各种问题以及对其进行各项配置">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-05T13:12:57.000Z">
-<meta property="article:modified_time" content="2020-04-05T13:54:17.105Z">
+<meta property="article:modified_time" content="2020-04-05T16:05:46.743Z">
 <meta property="article:author" content="Lonffy">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -72,9 +72,9 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/JAVA/">JAVA</a></li>
-	        
 				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -93,6 +93,9 @@ var _hmt = _hmt || [];
     			
             
 		</nav>
+		<nav>
+			<span style="color: #999;font-size: 14px;line-height: 25px;">总文章数 1(总字数 <span class="post-count">706</span>)</span>
+		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
@@ -102,7 +105,7 @@ var _hmt = _hmt || [];
 		        
 			</div>
 		</nav>
-	</header>		
+	</header>
 </div>
 
     </div>
@@ -150,9 +153,9 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/JAVA/">JAVA</a></li>
-		        
 					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -184,10 +187,17 @@ var _hmt = _hmt || [];
 </a>
         
       </header>
+
     
+    <div align="center" class="post-count" style="font-size: 14px;color: #999;">
+        字数：706字
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="解决yilia提示缺失模块的问题"><a href="#解决yilia提示缺失模块的问题" class="headerlink" title="解决yilia提示缺失模块的问题"></a>解决yilia提示缺失模块的问题</h4><p>将以下内容放到博客目录的配置文件中, 即_config.xml</p>
+        <p>修复yilia的各种问题以及对其进行各项配置</p>
+<a id="more"></a>
+<hr>
+<h4 id="解决yilia提示缺失模块的问题"><a href="#解决yilia提示缺失模块的问题" class="headerlink" title="解决yilia提示缺失模块的问题"></a>解决yilia提示缺失模块的问题</h4><p>将以下内容放到博客目录的配置文件中, 即_config.xml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">jsonContent:</span><br><span class="line">  meta: false</span><br><span class="line">  pages: false</span><br><span class="line">  posts:</span><br><span class="line">    title: true</span><br><span class="line">    date: true</span><br><span class="line">    path: true</span><br><span class="line">    text: false</span><br><span class="line">    raw: false</span><br><span class="line">    content: false</span><br><span class="line">    slug: false</span><br><span class="line">    updated: false</span><br><span class="line">    comments: false</span><br><span class="line">    link: false</span><br><span class="line">    permalink: false</span><br><span class="line">    excerpt: false</span><br><span class="line">    categories: false</span><br><span class="line">    tags: true</span><br></pre></td></tr></table></figure>
 <h4 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h4><p>先在yilia主题目录下面创建assets文件夹(命名随意),把图片LonffyImg.png放进去,再到主题的配置文件_config.xml文件中配置avatar参数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: &#x2F;lonffy&#x2F;LonffyImg.png</span><br></pre></td></tr></table></figure>
@@ -203,6 +213,25 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在menu中增加一个JAVA专题</span><br><span class="line">menu:</span><br><span class="line">  主页: &#x2F;</span><br><span class="line">  JAVA: &#x2F;tags&#x2F;JAVA&#x2F;</span><br></pre></td></tr></table></figure>
 <p>创建文章时要指定tag,例如:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: JAVA 多线程编程</span><br><span class="line">date: 2020-04-05 21:12:57</span><br><span class="line">tags:</span><br><span class="line">    - JAVA</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置文章只显示摘要-点击全文再查看全部"><a href="#设置文章只显示摘要-点击全文再查看全部" class="headerlink" title="设置文章只显示摘要, 点击全文再查看全部"></a>设置文章只显示摘要, 点击全文再查看全部</h4><p>在你 MD 格式文章正文插入 <!-- more --> 即可，只会显示它之前的，此后的就不显示，<br>点击文章标题，全文阅读才可看到，同时注释掉文件 themes/yilia/_config.yml 里的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">excerpt_link: more</span><br></pre></td></tr></table></figure>
+
+<h4 id="首页添加显示总文章数量"><a href="#首页添加显示总文章数量" class="headerlink" title="首页添加显示总文章数量"></a>首页添加显示总文章数量</h4><p>打开 themes\yilia\layout_partial\left-col.ejs 文件<br>在：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class&#x3D;&quot;header-menu&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">    &lt;% for (var i in theme.menu)&#123; %&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href&#x3D;&quot;&lt;%- url_for(theme.menu[i]) %&gt;&quot;&gt;&lt;%&#x3D; i %&gt;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;%&#125;%&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;nav&gt;</span><br></pre></td></tr></table></figure>
+<p>后面添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav&gt;</span><br><span class="line">    &lt;span style&#x3D;&quot;color: #999;font-size: 14px;line-height: 25px;&quot;&gt;总文章数 &lt;%&#x3D;site.posts.length%&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;nav&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="文章添加字数统计"><a href="#文章添加字数统计" class="headerlink" title="文章添加字数统计"></a>文章添加字数统计</h4><p>安装插件hexo-wordcount</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+<p>在 themes\yilia\layout_partial\left-col.ejs中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总字数 &lt;span class&#x3D;&quot;post-count&quot;&gt;&lt;%&#x3D; totalcount(site, &#39;0,0.0a&#39;) %&gt;&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<p>编辑 themes\yilia\layout_partial\article.ejs<br>在header下面加入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align&#x3D;&quot;center&quot; class&#x3D;&quot;post-count&quot; style&#x3D;&quot;font-size: 14px;color: #999;&quot;&gt;</span><br><span class="line">   字数：&lt;%&#x3D; wordcount(post.content) %&gt;字%&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭信息收集"><a href="#关闭信息收集" class="headerlink" title="关闭信息收集"></a>关闭信息收集</h4><p>讲main.0cf68a.js内容清空即可<br>源码是themes/yilia/source-src/js/report.js, 可删除</p>
+<h4 id="添加评论系统-gitment"><a href="#添加评论系统-gitment" class="headerlink" title="添加评论系统 gitment"></a>添加评论系统 gitment</h4><p>注册<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a><br>注册信息说明:<br>Application name 博客名字<br>Homepage URL 网站主页地址lonffy.github.io<br>Application description:描述，选填<br>Authorization callback URL: 填写与Homepage URL一样即可<br>注册完成后, 会进入一个页面, 里面有Client ID和Client Secret</p>
+
       
 
       
@@ -302,11 +331,12 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://lonffy.github.io/2020/04/05/%E7%8E%A9%E8%BD%ACHexo-yilia%E4%B8%BB%E9%A2%98/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://lonffy.github.io/2020/04/05/%E7%8E%A9%E8%BD%ACHexo-yilia%E4%B8%BB%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
 <div class="mask js-mask"></div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -335,7 +365,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#解决yilia提示缺失模块的问题"><span class="toc-number">1.</span> <span class="toc-text">解决yilia提示缺失模块的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置头像"><span class="toc-number">2.</span> <span class="toc-text">设置头像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置左下角社交联系"><span class="toc-number">3.</span> <span class="toc-text">设置左下角社交联系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置打赏"><span class="toc-number">4.</span> <span class="toc-text">设置打赏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启用文章目录"><span class="toc-number">5.</span> <span class="toc-text">启用文章目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增加新专题"><span class="toc-number">6.</span> <span class="toc-text">增加新专题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#解决yilia提示缺失模块的问题"><span class="toc-number">1.</span> <span class="toc-text">解决yilia提示缺失模块的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置头像"><span class="toc-number">2.</span> <span class="toc-text">设置头像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置左下角社交联系"><span class="toc-number">3.</span> <span class="toc-text">设置左下角社交联系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置打赏"><span class="toc-number">4.</span> <span class="toc-text">设置打赏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启用文章目录"><span class="toc-number">5.</span> <span class="toc-text">启用文章目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增加新专题"><span class="toc-number">6.</span> <span class="toc-text">增加新专题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置文章只显示摘要-点击全文再查看全部"><span class="toc-number">7.</span> <span class="toc-text">设置文章只显示摘要, 点击全文再查看全部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#首页添加显示总文章数量"><span class="toc-number">8.</span> <span class="toc-text">首页添加显示总文章数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章添加字数统计"><span class="toc-number">9.</span> <span class="toc-text">文章添加字数统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关闭信息收集"><span class="toc-number">10.</span> <span class="toc-text">关闭信息收集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加评论系统-gitment"><span class="toc-number">11.</span> <span class="toc-text">添加评论系统 gitment</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -347,13 +377,29 @@ var _hmt = _hmt || [];
 
 
   
-  
-  
 
   
 
   
 
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://lonffy.github.io/2020/04/05/%E7%8E%A9%E8%BD%ACHexo-yilia%E4%B8%BB%E9%A2%98/",
+  owner: 'lonffy',
+  repo: 'https://github.com/lonffy/gitmentforhexo',
+  oauth: {
+    client_id: '1b476c026be60b500c71',
+    client_secret: 'a786a20bddab861742dda55700d5bde56be7a301',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
