@@ -16,7 +16,7 @@
 <meta property="og:description" content="修复yilia的各种问题以及对其进行各项配置">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-05T13:12:57.000Z">
-<meta property="article:modified_time" content="2020-04-05T16:05:46.743Z">
+<meta property="article:modified_time" content="2020-04-05T16:47:17.369Z">
 <meta property="article:author" content="Lonffy">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -94,7 +94,7 @@ var _hmt = _hmt || [];
             
 		</nav>
 		<nav>
-			<span style="color: #999;font-size: 14px;line-height: 25px;">总文章数 1(总字数 <span class="post-count">706</span>)</span>
+			<span style="color: #999;font-size: 14px;line-height: 25px;">总文章数 1(总字数 <span class="post-count">731</span>)</span>
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
@@ -190,7 +190,7 @@ var _hmt = _hmt || [];
 
     
     <div align="center" class="post-count" style="font-size: 14px;color: #999;">
-        字数：706字
+        字数：731字
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -230,8 +230,8 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align&#x3D;&quot;center&quot; class&#x3D;&quot;post-count&quot; style&#x3D;&quot;font-size: 14px;color: #999;&quot;&gt;</span><br><span class="line">   字数：&lt;%&#x3D; wordcount(post.content) %&gt;字%&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
 
 <h4 id="关闭信息收集"><a href="#关闭信息收集" class="headerlink" title="关闭信息收集"></a>关闭信息收集</h4><p>讲main.0cf68a.js内容清空即可<br>源码是themes/yilia/source-src/js/report.js, 可删除</p>
-<h4 id="添加评论系统-gitment"><a href="#添加评论系统-gitment" class="headerlink" title="添加评论系统 gitment"></a>添加评论系统 gitment</h4><p>注册<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a><br>注册信息说明:<br>Application name 博客名字<br>Homepage URL 网站主页地址lonffy.github.io<br>Application description:描述，选填<br>Authorization callback URL: 填写与Homepage URL一样即可<br>注册完成后, 会进入一个页面, 里面有Client ID和Client Secret</p>
-
+<h4 id="添加评论系统-gitment"><a href="#添加评论系统-gitment" class="headerlink" title="添加评论系统 gitment"></a>添加评论系统 gitment</h4><p>注册<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a><br>注册信息说明:<br>Application name 博客名字<br>Homepage URL 网站主页地址<a href="https://lonffy.github.io">https://lonffy.github.io</a><br>Application description:描述，选填<br>Authorization callback URL: 填写与Homepage URL一样即可<br>注册完成后, 会进入一个页面, 里面有Client ID和Client Secret<br>最后配置主题的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#5、Gitment</span><br><span class="line">gitment_owner: xxx</span><br><span class="line">gitment_repo: https:&#x2F;&#x2F;ccccxo.git</span><br><span class="line">gitment_oauth:</span><br><span class="line">  client_id: xxxx</span><br><span class="line">  client_secret: xxx</span><br></pre></td></tr></table></figure>
       
 
       
