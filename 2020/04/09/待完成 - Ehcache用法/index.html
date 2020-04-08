@@ -6,33 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lonffy.github.io">
-  <title>Archives: 2020 | Lonffy的博客</title>
+  <title>Springboot整合ehcache | Lonffy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Talk is cheap.Show me the code">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lonffy的博客">
-<meta property="og:url" content="http://lonffy.github.io/archives/2020/index.html">
+  <meta name="description" content="Springboot整合ehcache 以及 ehcache常用配置说明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Springboot整合ehcache">
+<meta property="og:url" content="http://lonffy.github.io/2020/04/09/%E5%BE%85%E5%AE%8C%E6%88%90%20-%20Ehcache%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="Lonffy的博客">
-<meta property="og:description" content="Talk is cheap.Show me the code">
+<meta property="og:description" content="Springboot整合ehcache 以及 ehcache常用配置说明">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-08T16:15:57.000Z">
+<meta property="article:modified_time" content="2020-04-08T16:18:17.503Z">
 <meta property="article:author" content="Lonffy">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="spring">
-<meta property="article:tag" content="spring boot">
-<meta property="article:tag" content="mysql">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="vue">
-<meta property="article:tag" content="程序猿">
-<meta property="article:tag" content="程序媛">
-<meta property="article:tag" content="极客">
-<meta property="article:tag" content="编程">
-<meta property="article:tag" content="代码">
-<meta property="article:tag" content="开源">
-<meta property="article:tag" content="IT网站">
-<meta property="article:tag" content="Developer">
-<meta property="article:tag" content="Programmer">
-<meta property="article:tag" content="Coder">
-<meta property="article:tag" content="Geek">
+<meta property="article:tag" content="JAVA">
+<meta property="article:tag" content="Ehcache">
+<meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Lonffy的博客" type="application/atom+xml">
@@ -184,36 +172,104 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-待完成 - Ehcache用法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/09/%E5%BE%85%E5%AE%8C%E6%88%90%20-%20Ehcache%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-04-08T16:15:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/09/%E5%BE%85%E5%AE%8C%E6%88%90%20-%20Ehcache%E7%94%A8%E6%B3%95/">Springboot整合ehcache</a>
+    <h1 class="article-title" itemprop="name">
+      Springboot整合ehcache
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/09/%E5%BE%85%E5%AE%8C%E6%88%90%20-%20Ehcache%E7%94%A8%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-04-08T16:15:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+</a>
+        
+      </header>
+
+    
+    <div align="center" class="post-count" style="font-size: 14px;color: #999;">
+        字数：1.7k字
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Springboot整合ehcache 以及 ehcache常用配置说明</p>
+<a id="more"></a>
+
+<p>增加依赖: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开启spring boot cache --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-cache&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;!-- Ehcache 坐标 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;net.sf.ehcache&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;ehcache&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>增加配置文件ehcache.xml,放到src/main/resource下面, 内容如下: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;ehcache xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation&#x3D;&quot;..&#x2F;config&#x2F;ehcache.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;diskStore path&#x3D;&quot;java.io.tmpdir&quot;&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--defaultCache:echcache的默认缓存策略  --&gt;</span><br><span class="line">    &lt;defaultCache</span><br><span class="line">            maxElementsInMemory&#x3D;&quot;10000&quot;</span><br><span class="line">            eternal&#x3D;&quot;false&quot;</span><br><span class="line">            timeToIdleSeconds&#x3D;&quot;120&quot;</span><br><span class="line">            timeToLiveSeconds&#x3D;&quot;120&quot;</span><br><span class="line">            maxElementsOnDisk&#x3D;&quot;10000000&quot;</span><br><span class="line">            diskExpiryThreadIntervalSeconds&#x3D;&quot;120&quot;</span><br><span class="line">            memoryStoreEvictionPolicy&#x3D;&quot;LRU&quot;&gt;</span><br><span class="line">        &lt;persistence strategy&#x3D;&quot;localTempSwap&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;defaultCache&gt;</span><br><span class="line">    &lt;cache name&#x3D;&quot;users&quot;</span><br><span class="line">           maxElementsInMemory&#x3D;&quot;10000&quot;</span><br><span class="line">           eternal&#x3D;&quot;false&quot;</span><br><span class="line">           timeToIdleSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           timeToLiveSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           maxElementsOnDisk&#x3D;&quot;10000000&quot;</span><br><span class="line">           diskExpiryThreadIntervalSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           memoryStoreEvictionPolicy&#x3D;&quot;LRU&quot;&gt;</span><br><span class="line">        &lt;persistence strategy&#x3D;&quot;localTempSwap&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;cache&gt;</span><br><span class="line"></span><br><span class="line">    &lt;cache name&#x3D;&quot;sys_config&quot;</span><br><span class="line">           maxElementsInMemory&#x3D;&quot;10000&quot;</span><br><span class="line">           eternal&#x3D;&quot;false&quot;</span><br><span class="line">           timeToIdleSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           timeToLiveSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           maxElementsOnDisk&#x3D;&quot;10000000&quot;</span><br><span class="line">           diskExpiryThreadIntervalSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           memoryStoreEvictionPolicy&#x3D;&quot;LRU&quot;&gt;</span><br><span class="line">        &lt;persistence strategy&#x3D;&quot;localTempSwap&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;cache&gt;</span><br><span class="line">&lt;&#x2F;ehcache&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>在application.properties文件中指定ehcache的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.cache.ehcache.config &#x3D; classpath:ehcache.xml</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Ehcache的使用"><a href="#Ehcache的使用" class="headerlink" title="Ehcache的使用"></a>Ehcache的使用</h4><h5 id="场景-缓存查询结果"><a href="#场景-缓存查询结果" class="headerlink" title="场景: 缓存查询结果"></a>场景: 缓存查询结果</h5><p>在控制器上增加注解 @Cacheable(value = “sys_config”)<br>标识这个控制器返回的结果将缓存, 使用的缓存策略是”sys_config”<br>代码示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;getSysConfig&quot;)</span><br><span class="line">    &#x2F;**启用缓存, 并且设置缓存的key为system-config*&#x2F;</span><br><span class="line">    @Cacheable(value &#x3D; &quot;sys_config&quot;, key &#x3D; &quot;&#39;system-config&#39;&quot;)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public List&lt;SysConfig&gt; getSysConfig(ModelMap map) &#123;</span><br><span class="line">        &#x2F;&#x2F;再次请求时不会再执行了</span><br><span class="line">        logger.info(&quot;模拟查询数据库返回系统配置信息&quot;);</span><br><span class="line">        List&lt;SysConfig&gt; configList &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i &#x3D; 0; i &lt; 100; i++) &#123;</span><br><span class="line">            SysConfig config &#x3D; new SysConfig();</span><br><span class="line">            config.setId(UUIDUtil.generate());</span><br><span class="line">            config.setConfVal(&quot;val&quot; + i);</span><br><span class="line">            config.setName(&quot;name&quot; + i);</span><br><span class="line">            config.setInUse(1);</span><br><span class="line">            configList.add(config);</span><br><span class="line">        &#125;</span><br><span class="line">        return configList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>将再次请求的时候,就不会再到数据库中查询了</p>
+<h5 id="上面的例子中使用Key属性设置自定义Key"><a href="#上面的例子中使用Key属性设置自定义Key" class="headerlink" title="上面的例子中使用Key属性设置自定义Key"></a>上面的例子中使用Key属性设置自定义Key</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">key属性是用来指定Spring缓存方法的返回结果时对应的key的。该属性支持SpringEL表达式。当我们没有指定该属性时，Spring将使用默认策略生成key。我们这里先来看看自定义策略: </span><br><span class="line">我们可以通过Spring的EL表达式来指定我们的key。这里的EL表达式可以使用方法参数及它们对应的属性。使用方法参数时我们可以直接使用“#参数名”或者“#p参数index”。</span><br><span class="line">下面是几个使用参数作为key的示例。</span><br><span class="line">   @Cacheable(value&#x3D;&quot;users&quot;, key&#x3D;&quot;#id&quot;)</span><br><span class="line">   public User find(Integer id) &#123;</span><br><span class="line">      return null;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">   @Cacheable(value&#x3D;&quot;users&quot;, key&#x3D;&quot;#p0&quot;)</span><br><span class="line">   public User find(Integer id) &#123;</span><br><span class="line">      returnnull;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   @Cacheable(value&#x3D;&quot;users&quot;, key&#x3D;&quot;#user.id&quot;)</span><br><span class="line">   public User find(User user) &#123;</span><br><span class="line">      returnnull;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   @Cacheable(value&#x3D;&quot;users&quot;, key&#x3D;&quot;#p0.id&quot;)</span><br><span class="line">   public User find(User user) &#123;</span><br><span class="line">      returnnull;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">除了上述使用方法参数作为key之外，Spring还为我们提供了一个root对象可以用来生成key。</span><br><span class="line">methodName</span><br><span class="line">当前方法名</span><br><span class="line">#root.methodName</span><br><span class="line"></span><br><span class="line">method</span><br><span class="line">当前方法</span><br><span class="line">#root.method.name</span><br><span class="line"></span><br><span class="line">target</span><br><span class="line">当前被调用的对象</span><br><span class="line">#root.target</span><br><span class="line"></span><br><span class="line">targetClass</span><br><span class="line">当前被调用的对象的class</span><br><span class="line">#root.targetClass</span><br><span class="line"></span><br><span class="line">args</span><br><span class="line">当前方法参数组成的数组</span><br><span class="line">#root.args[0]</span><br><span class="line"></span><br><span class="line">caches</span><br><span class="line">当前被调用的方法使用的Cache</span><br><span class="line">#root.caches[0].name</span><br></pre></td></tr></table></figure>
+<hr>
+<h6 id="缓存中的内容可以通过CacheManager来读取"><a href="#缓存中的内容可以通过CacheManager来读取" class="headerlink" title="缓存中的内容可以通过CacheManager来读取"></a>缓存中的内容可以通过CacheManager来读取</h6><p>注意引入的是import org.springframework.cache.CacheManager;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Resource</span><br><span class="line">CacheManager cacheManager;</span><br></pre></td></tr></table></figure>
+
+<p>通过cacheManager获取的例子如下: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Cache cache &#x3D; cacheManager.getCache(&quot;sys_config&quot;);</span><br><span class="line">Cache.ValueWrapper wrapper &#x3D; cache.get(&quot;system-config&quot;);</span><br><span class="line">Object obj &#x3D;  wrapper.get();</span><br></pre></td></tr></table></figure>
+
+<h6 id="测试缓存写入磁盘"><a href="#测试缓存写入磁盘" class="headerlink" title="测试缓存写入磁盘"></a>测试缓存写入磁盘</h6><p>先将缓存策略改为内存中只存1个元素,其他元素写入磁盘<br>配置文件内容如下: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;ehcache xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation&#x3D;&quot;..&#x2F;config&#x2F;ehcache.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--&lt;diskStore path&#x3D;&quot;java.io.tmpdir&quot;&#x2F;&gt;--&gt;</span><br><span class="line">    &lt;diskStore path&#x3D;&quot;D:\temp\ehcache&quot;&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--defaultCache:echcache的默认缓存策略  --&gt;</span><br><span class="line">    &lt;defaultCache</span><br><span class="line">            maxElementsInMemory&#x3D;&quot;10000&quot;</span><br><span class="line">            eternal&#x3D;&quot;false&quot;</span><br><span class="line">            timeToIdleSeconds&#x3D;&quot;120&quot;</span><br><span class="line">            timeToLiveSeconds&#x3D;&quot;120&quot;</span><br><span class="line">            maxElementsOnDisk&#x3D;&quot;10000000&quot;</span><br><span class="line">            diskExpiryThreadIntervalSeconds&#x3D;&quot;120&quot;</span><br><span class="line">            memoryStoreEvictionPolicy&#x3D;&quot;LRU&quot;&gt;</span><br><span class="line">        &lt;persistence strategy&#x3D;&quot;localTempSwap&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;defaultCache&gt;</span><br><span class="line">    &lt;cache name&#x3D;&quot;users&quot;</span><br><span class="line">           maxElementsInMemory&#x3D;&quot;10000&quot;</span><br><span class="line">           eternal&#x3D;&quot;false&quot;</span><br><span class="line">           timeToIdleSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           timeToLiveSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           maxElementsOnDisk&#x3D;&quot;10000000&quot;</span><br><span class="line">           diskExpiryThreadIntervalSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           memoryStoreEvictionPolicy&#x3D;&quot;LRU&quot;&gt;</span><br><span class="line">        &lt;persistence strategy&#x3D;&quot;localTempSwap&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;cache&gt;</span><br><span class="line"></span><br><span class="line">    &lt;cache name&#x3D;&quot;sys_config&quot;</span><br><span class="line">           maxElementsInMemory&#x3D;&quot;10000&quot;</span><br><span class="line">           eternal&#x3D;&quot;false&quot;</span><br><span class="line">           timeToIdleSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           timeToLiveSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           maxElementsOnDisk&#x3D;&quot;10000000&quot;</span><br><span class="line">           diskExpiryThreadIntervalSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           memoryStoreEvictionPolicy&#x3D;&quot;LRU&quot;&gt;</span><br><span class="line">        &lt;persistence strategy&#x3D;&quot;localTempSwap&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;cache&gt;</span><br><span class="line"></span><br><span class="line">    &lt;cache name&#x3D;&quot;test_disk&quot;</span><br><span class="line">           maxElementsInMemory&#x3D;&quot;1&quot;</span><br><span class="line">           eternal&#x3D;&quot;false&quot;</span><br><span class="line">           timeToIdleSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           timeToLiveSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           maxElementsOnDisk&#x3D;&quot;10000000&quot;</span><br><span class="line">           diskExpiryThreadIntervalSeconds&#x3D;&quot;120&quot;</span><br><span class="line">           memoryStoreEvictionPolicy&#x3D;&quot;LRU&quot;&gt;</span><br><span class="line">        &lt;persistence strategy&#x3D;&quot;localTempSwap&quot;&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;cache&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;&#x2F;ehcache&gt;</span><br></pre></td></tr></table></figure>
+<p>代码例子: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1. 创建缓存管理器</span><br><span class="line">CacheManager cacheManager &#x3D; CacheManager.create(&quot;F:\\code\\nicewp\\nice-framework\\nice-web\\src\\main\\resources\\ehcache.xml&quot;);</span><br><span class="line">&#x2F;&#x2F; 2. 获取缓存对象</span><br><span class="line">Cache cache &#x3D; cacheManager.getCache(&quot;test_disk&quot;);</span><br><span class="line">&#x2F;&#x2F; 3. 创建元素</span><br><span class="line">Element element &#x3D; new Element(&quot;key1&quot;, &quot;value1&quot;);</span><br><span class="line">Element element2 &#x3D; new Element(&quot;key2&quot;, &quot;value2&quot;);</span><br><span class="line">&#x2F;&#x2F; 4. 将元素添加到缓存</span><br><span class="line">cache.put(element);</span><br><span class="line">cache.put(element2);</span><br><span class="line">&#x2F;&#x2F; 这时候在磁盘D:\temp\ehcache下会看到以下4个文件, 可见test_disk.data中已经有内容了</span><br><span class="line">&#x2F;**</span><br><span class="line"> * .ehcache-diskstore.lock</span><br><span class="line"> * users.data 0KB</span><br><span class="line"> * sys_config.data 0KB</span><br><span class="line"> * test_disk.data  1KB</span><br><span class="line"> *&#x2F;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="配置项详解"><a href="#配置项详解" class="headerlink" title="配置项详解"></a>配置项详解</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">maxElementsInMemory ：内存中允许存储的最大的元素个数，0代表无限个</span><br><span class="line">eternal  设置缓存中对象是否为永久的，如果是，超时设置将被忽略，对象从不过期。根据存储数据的不同，例如一些静态不变的数据如省市区等可以设置为永不过时</span><br><span class="line">timeToIdleSeconds ： 设置对象在失效前的允许闲置时间（单位：秒）。仅当eternal&#x3D;false对象不是永久有效时使用，可选属性，默认值是0，也就是可闲置时间无穷大。</span><br><span class="line">overflowToDisk ：内存不足时，是否启用磁盘缓存。</span><br><span class="line">maxEntriesLocalDisk：当内存中对象数量达到maxElementsInMemory时，Ehcache将会对象写到磁盘中。</span><br><span class="line">maxElementsOnDisk：硬盘最大缓存个数。</span><br><span class="line">diskSpoolBufferSizeMB：这个参数设置DiskStore（磁盘缓存）的缓存区大小。默认是30MB。每个Cache都应该有自己的一个缓冲区。</span><br><span class="line">diskPersistent：是否在VM重启时存储硬盘的缓存数据。默认值是false。</span><br><span class="line">diskExpiryThreadIntervalSeconds：磁盘失效线程运行时间间隔，默认是120秒。</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢您的支持与鼓励<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/lonffy/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/lonffy/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -233,171 +289,120 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://lonffy.github.io/2020/04/09/%E5%BE%85%E5%AE%8C%E6%88%90%20-%20Ehcache%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/07/ThreadLocal%20-%20%E7%BA%BF%E7%A8%8B%E9%9A%94%E7%A6%BB/" class="archive-article-date">
-  	<time datetime="2020-04-07T15:38:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/07/ThreadLocal%20-%20%E7%BA%BF%E7%A8%8B%E9%9A%94%E7%A6%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ThreadLocal - 线程隔离</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/07/ThreadLocal%20-%20%E7%BA%BF%E7%A8%8B%E9%9A%94%E7%A6%BB/">ThreadLocal - 线程隔离</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ehcache的使用"><span class="toc-number">1.</span> <span class="toc-text">Ehcache的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#场景-缓存查询结果"><span class="toc-number">1.1.</span> <span class="toc-text">场景: 缓存查询结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#上面的例子中使用Key属性设置自定义Key"><span class="toc-number">1.2.</span> <span class="toc-text">上面的例子中使用Key属性设置自定义Key</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#缓存中的内容可以通过CacheManager来读取"><span class="toc-number">1.2.1.</span> <span class="toc-text">缓存中的内容可以通过CacheManager来读取</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#测试缓存写入磁盘"><span class="toc-number">1.2.2.</span> <span class="toc-text">测试缓存写入磁盘</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置项详解"><span class="toc-number">1.3.</span> <span class="toc-text">配置项详解</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/06/Typora-%E4%B8%80%E6%AC%BE%E7%AE%80%E6%B4%81%E5%8A%9F%E8%83%BD%E5%8F%88%E5%BC%BA%E5%A4%A7%E7%9A%84Markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-04-06T11:38:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/06/Typora-%E4%B8%80%E6%AC%BE%E7%AE%80%E6%B4%81%E5%8A%9F%E8%83%BD%E5%8F%88%E5%BC%BA%E5%A4%A7%E7%9A%84Markdown%E7%BC%96%E8%BE%91%E5%99%A8/">Typora-一款简洁功能又强大的Markdown编辑器</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/06/10%E4%B8%AA%E9%9D%9E%E5%B8%B8%E5%AE%9E%E7%94%A8%E7%9A%84IDEA%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-04-06T09:36:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/06/10%E4%B8%AA%E9%9D%9E%E5%B8%B8%E5%AE%9E%E7%94%A8%E7%9A%84IDEA%E6%8F%92%E4%BB%B6/">10个非常实用的IDEA插件</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IDEA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/05/%E7%8E%A9%E8%BD%ACHexo-yilia%E4%B8%BB%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-04-05T13:12:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/05/%E7%8E%A9%E8%BD%ACHexo-yilia%E4%B8%BB%E9%A2%98/">玩转Hexo-yilia主题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -421,8 +426,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
