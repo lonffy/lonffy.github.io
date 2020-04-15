@@ -108,7 +108,7 @@ var _hmt = _hmt || [];
             
 		</nav>
 		<nav>
-			<span style="color: #999;font-size: 14px;line-height: 25px;">总文章数 7(总字数 <span class="post-count">3.3k</span>)</span>
+			<span style="color: #999;font-size: 14px;line-height: 25px;">总文章数 8(总字数 <span class="post-count">3.5k</span>)</span>
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
@@ -185,6 +185,123 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-IDEA安装Findbugs插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/15/IDEA%E5%AE%89%E8%A3%85Findbugs%E6%8F%92%E4%BB%B6/">IDEA安装Findbugs插件</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/15/IDEA%E5%AE%89%E8%A3%85Findbugs%E6%8F%92%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2020-04-15T15:07:27.543Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
+</a>
+        
+      </header>
+
+    
+    <div align="center" class="post-count" style="font-size: 14px;color: #999;">
+        字数：214字
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title:  IDEA 安装Findbugs插件<br>date: 2020-04-15 23:08<br>tags:<br>    - IDEA</p>
+<h4 id="1-下载IDEA-findbugs插件"><a href="#1-下载IDEA-findbugs插件" class="headerlink" title="1.下载IDEA findbugs插件"></a>1.下载IDEA findbugs插件</h4><p>下载地址: <a href="https://plugins.jetbrains.com/files/3847/29582/FindBugs-IDEA-1.0.1.zip?updateId=29582&amp;pluginId=3847&amp;family=INTELLIJ" target="_blank" rel="noopener">https://plugins.jetbrains.com/files/3847/29582/FindBugs-IDEA-1.0.1.zip?updateId=29582&amp;pluginId=3847&amp;family=INTELLIJ</a></p>
+<h4 id="2-手动安装findbugs插件"><a href="#2-手动安装findbugs插件" class="headerlink" title="2.手动安装findbugs插件"></a>2.手动安装findbugs插件</h4><p>File | Settings | Plugins</p>
+<p>选择install plugin from disk…</p>
+<h4 id="3-重启之后可以在IDEA-底部工具栏中看到FindBugs-IDEA菜单"><a href="#3-重启之后可以在IDEA-底部工具栏中看到FindBugs-IDEA菜单" class="headerlink" title="3.重启之后可以在IDEA 底部工具栏中看到FindBugs-IDEA菜单"></a>3.重启之后可以在IDEA 底部工具栏中看到FindBugs-IDEA菜单</h4><p><img src="/.io//H:%5Cnewdata%5Clonffy%5C%E7%AC%94%E8%AE%B0%E8%B5%84%E6%96%99%5CYNote%5Clongfei120@126.com%5C32b901172de240ee9cf977ec4f8dba77%5Cclipboard.png" alt="img"></p>
+<h5 id="4-FindBugs可以按不同维度分类展示bug"><a href="#4-FindBugs可以按不同维度分类展示bug" class="headerlink" title="4.FindBugs可以按不同维度分类展示bug"></a>4.FindBugs可以按不同维度分类展示bug</h5><p>分别有: 按bug分类展示, 按类展示, 按包展示, 按风险等级展示</p>
+<p><img src="/.io//H:%5Cnewdata%5Clonffy%5C%E7%AC%94%E8%AE%B0%E8%B5%84%E6%96%99%5CYNote%5Clongfei120@126.com%5Cdb99793660684916a31ae3b58675b28b%5Cclipboard.png" alt="img"></p>
+<p>5.findbugs bug分类</p>
+<table>
+<thead>
+<tr>
+<th>Bad practice</th>
+<th>坏习惯</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Malicious code vulnerability</td>
+<td>恶意代码</td>
+</tr>
+<tr>
+<td>Correctness</td>
+<td>不正确的代码</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>性能问题代码</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>不安全的代码</td>
+</tr>
+<tr>
+<td>Dodgy code</td>
+<td>狡猾代码</td>
+</tr>
+<tr>
+<td>Experimental</td>
+<td>实验性代码</td>
+</tr>
+<tr>
+<td>Multithreaded correctness</td>
+<td>错误多线程代码</td>
+</tr>
+<tr>
+<td>Internationalization</td>
+<td>国际化</td>
+</tr>
+</tbody></table>
+<p>具体的解释如下:</p>
+<h5 id="6-可开启关闭不同的校验规则"><a href="#6-可开启关闭不同的校验规则" class="headerlink" title="6. 可开启关闭不同的校验规则"></a>6. 可开启关闭不同的校验规则</h5><p>File | Settings | Other Settings | FindBugs-IDEA</p>
+<h5 id="7-增加findbugs插件"><a href="#7-增加findbugs插件" class="headerlink" title="7.增加findbugs插件"></a>7.增加findbugs插件</h5><p><img src="/.io//H:%5Cnewdata%5Clonffy%5C%E7%AC%94%E8%AE%B0%E8%B5%84%E6%96%99%5CYNote%5Clongfei120@126.com%5Ca58a35ca861d4ec8b98611abdc443282%5Cclipboard.png" alt="img"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/15/IDEA%E5%AE%89%E8%A3%85Findbugs%E6%8F%92%E4%BB%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Maven+Sonar进行代码分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -868,15 +985,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -885,6 +998,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
             
             <div class="clearfix"></div>
